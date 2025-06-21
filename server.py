@@ -26,15 +26,18 @@ def handle_client(client_socket):
     client_socket.close()
     clients.remove(client_socket)
 
-# Inicialização do servidor
-server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server.bind((HOST, PORT))
-server.listen()
-print(f"Servidor rodando em {HOST}:{PORT}")
+def main():
+    server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server.bind((HOST, PORT))
+    server.listen()
+    print(f"Servidor rodando em {HOST}:{PORT}")
 
-while True:
-    client_socket, addr = server.accept()
-    print(f"Nova conexão de {addr}")
-    clients.append(client_socket)
-    thread = threading.Thread(target=handle_client, args=(client_socket,))
-    thread.start()
+    while True:
+        client_socket, addr = server.accept()
+        print(f"Nova conexão de {addr}")
+        clients.append(client_socket)
+        thread = threading.Thread(target=handle_client, args=(client_socket,))
+        thread.start()
+
+if __name__ == "__main__":
+    main()
