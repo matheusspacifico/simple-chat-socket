@@ -172,3 +172,11 @@ Para subir e testar a aplicação é muito simples, basta rodar o servidor e qua
     ```
 
 É isso! Você pode subir quantos clientes quiser para testar, sinta-se a vontade.
+
+Alternativamente, se você estivar no Windows, você pode simplesmente rodar no terminal:
+
+```bash
+run_chat_script.bat
+```
+
+Desta forma, será automaticamente inicializado 3 terminais, 1 com servidor e 2 com clientes.
